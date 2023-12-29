@@ -1,0 +1,37 @@
+{% extends 'products/base.html' %}
+{% load humanize static%}
+
+{% block css %}
+    <link href="{% static 'vendor/css/products.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <!-- Левая колонка с карточкой товара -->
+        <div class="col-md-6 d-flex flex-column align-items-center">
+            <div class="card h-100">
+                <a href="#">
+                    <img class="container-fluid"
+                         src="{{ product.image.url }}"
+                         alt="">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title" >
+                        <a href="#">{{ product.name }}</a>
+                    </h4>
+                    <h5>{{ product.price|intcomma }} руб.</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая колонка с описанием -->
+        <div class="col-md-3 d-flex flex-column ">
+            {{ product.description }}
+
+            <a class="btn btn-success"
+               href="{% url 'products:basket_add' product.id %}">
+                Отправить в корзину
+            </a>
+        </div>
+    </div>
+{% endblock %}

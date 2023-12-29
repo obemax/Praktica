@@ -1,0 +1,78 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+{% block css %}
+    <link href="{% static 'vendor/css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    {% if messages or form.non_field_errors %}
+        <div class="alert
+            {% if messages %}
+                alert-success
+            {% else %}
+                alert-warning
+            {% endif %}
+            alert-dismissible fade show" role="alert"
+            style="text-align: center; font-size: 20px; font-family: Arial, sans-serif; padding: 10px; border-radius: 5px; margin: 10px;">
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% else %}
+                {{ form.non_field_errors }}
+            {% endif %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
+    <div>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <!-- Background & animion & navbar & title -->
+    <div class="container-fluid">
+    <!-- Background animtion-->
+    <div class="cube"><img src="{% static '/vendor/img/icons/1.png' %}" /> </div>
+    <div class="cube"><img src="{% static '/vendor/img/icons/2.png' %}" /> </div>
+    <div class="cube"> <img src="{% static '/vendor/img/icons/3.png' %}" /></div>
+    <div class="cube"> <img src="{% static '/vendor/img/icons/4.png' %}" /></div>
+    <div class="cube" ><img src="{% static '/vendor/img/icons/5.png' %}" /> </div>
+    </div>
+    </div>
+
+    <div class="card1">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+              <div class="card">
+                <img src="{% static '/vendor/img/house.webp' %}" class="container-fluid" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Заголовок карточки</h5>
+                  <p class="card-text">Это более длинная карта </p>
+                  <a href="{% url 'products:index' %}" class="btn btn-primary">Товары</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="{% static '/vendor/img/house.webp' %}" class="container-fluid" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Заголовок карточки</h5>
+                  <p class="card-text">Это более длинная карта С вспомогательным текстом ниже в качестве естественного перехода к дополнительному контенту. Этот контент немного длиннее.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="{% static '/vendor/img/house.webp' %}" class="container-fluid" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Заголовок карточки</h5>
+                  <p class="card-text">Это более длинная карта С вспомогательным текстом ниже в качестве естественного перехода к дополнительному контенту.</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
